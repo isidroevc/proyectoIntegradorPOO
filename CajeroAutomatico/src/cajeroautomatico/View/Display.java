@@ -85,7 +85,7 @@ public void mostrar(){
         
         fondodepantalla.setVisible(true);
         fondodepantalla.setBounds(0,0,600,600);
-        fondodepantalla.setIcon(new ImageIcon( "\"src/cajeroautomatico/imagenes/cholobank.jpg"));
+        fondodepantalla.setIcon(new ImageIcon( "src/cajeroautomatico/imagenes/cholobank.jpg"));
         
     }
     void lanzar(){
