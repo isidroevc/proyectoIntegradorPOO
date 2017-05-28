@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Display {
+public class Display extends JFrame{
   
     JFrame  ventana;
     JPanel  pantalla;
@@ -32,7 +32,6 @@ public void mostrar(){
     }
     
     void crear(){
-    ventana   = new JFrame();
     pantalla  = new JPanel();
     iniciarsesion = new JButton("Iniciar Sesion");
     registrar= new JButton("Registrarse");
@@ -46,10 +45,10 @@ public void mostrar(){
     }
     
     void pegar(){
-        ventana.setSize(600,600);
-        ventana.setTitle("Cholo Bank");
-        ventana.setLocationRelativeTo(null);
-        ventana.setResizable(false);
+        this.setSize(600,600);
+        this.setTitle("Cholo Bank");
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         
         pantalla.setLayout(null);
         pantalla.setBounds(0,0,500,500);
@@ -100,9 +99,9 @@ public void mostrar(){
         pantalla.add(ingresarc);
         pantalla.add(ingresarn);
         
-        ventana.getContentPane().add(pantalla);
-        ventana.setVisible(true);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getContentPane().add(pantalla);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
    class ControladorBoton implements ActionListener {
@@ -112,7 +111,7 @@ public void mostrar(){
                if (e.getSource() == iniciarsesion) {
                 iniciarsesion.setVisible(false);
                 registrar.setVisible(false);
-                ventana.setTitle("Iniciar sesion");
+                setTitle("Iniciar sesion");
                 confirmar.setVisible(true);
                 cuenta.setVisible(true);
                 nip.setVisible(true);
