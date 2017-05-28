@@ -19,6 +19,7 @@ public class TestDisplay {
     public static void main(String[] args) {
         Display d = new Display();
         d.mostrar();
+        //el cesar o hizo esta madre y le dije que la hiciera.
     }
     
 }
