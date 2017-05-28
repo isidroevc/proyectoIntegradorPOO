@@ -5,21 +5,15 @@
  */
 package cajeroautomatico.Test;
 
-import cajeroautomatico.View.Display;
-
-/**
- *
- * @author tharduz
- */
-public class TestDisplay {
+import cajeroautomatico.View.Menu;
+public class TestMenu {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Display d = new Display();
-        d.mostrar();
-        //el cesar o hizo esta madre y le dije que la hiciera.
+        Menu m = new Menu();
+        m.mostrar();
     }
     
 }
