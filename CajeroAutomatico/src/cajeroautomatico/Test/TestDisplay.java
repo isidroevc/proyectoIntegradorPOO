@@ -6,7 +6,7 @@
 package cajeroautomatico.Test;
 
 import cajeroautomatico.View.Display;
-
+import cajeroautomatico.View.Menu;
 /**
  *
  * @author tharduz
@@ -17,8 +17,8 @@ public class TestDisplay {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Display d = new Display();
-        d.mostrar();
+        Menu m = new Menu();
+        m.mostrar();
         //el cesar o hizo esta madre y le dije que la hiciera.
     }
     
