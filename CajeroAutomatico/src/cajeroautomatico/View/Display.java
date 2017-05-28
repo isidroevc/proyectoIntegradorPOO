@@ -10,12 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Display extends JFrame{
+public class Display extends JFrame {
   
-    JFrame  ventana;
     JPanel  pantalla;
-    JButton iniciarsesion;
-    JButton registrar;
     JButton confirmar;
     JLabel sesionfoto;
     JLabel fondodepantalla;
@@ -33,8 +30,6 @@ public void mostrar(){
     
     void crear(){
     pantalla  = new JPanel();
-    iniciarsesion = new JButton("Iniciar Sesion");
-    registrar= new JButton("Registrarse");
     confirmar= new JButton("Aceptar");
     fondodepantalla = new JLabel();
     cuenta = new JLabel("Cuenta:");
@@ -53,34 +48,25 @@ public void mostrar(){
         pantalla.setLayout(null);
         pantalla.setBounds(0,0,500,500);
         
-        iniciarsesion.setBounds(290,350,140,20);
-        iniciarsesion.setVisible(true);
-        iniciarsesion.setFocusable(false);
-        iniciarsesion.addActionListener(new ControladorBoton());
-        
         cuenta.setBounds(300, 340, 110, 20);
-        cuenta.setVisible(false);
+        cuenta.setVisible(true);
         nip.setBounds(320, 370, 110, 20);
-        nip.setVisible(false);
+        nip.setVisible(true);
         
         ingresarc.setBounds(350,340,150,20);
         ingresarn.setBounds(350,370,150,20);
-        ingresarc.setVisible(false);
-        ingresarn.setVisible(false);
-       
-        registrar.setBounds(303,380,110,20);
-        registrar.setVisible(true);
-        registrar.setFocusable(false);
-        registrar.addActionListener(new ControladorBoton());
+        ingresarc.setVisible(true);
+        ingresarn.setVisible(true);
         
         confirmar.setBounds(372,400,100,20);
-        confirmar.setVisible(false);
+        confirmar.setVisible(true);
         confirmar.setFocusable(false);
         confirmar.addActionListener(new ControladorBoton());
         
         sesionfoto.setBounds(200, 300, 115, 115);
         sesionfoto.setIcon(new ImageIcon( "src/cajeroautomatico/imagenes/sesionfoto.png"));
-        sesionfoto.setVisible(false);
+        sesionfoto.setVisible(true);
+        
         
         fondodepantalla.setVisible(true);
         fondodepantalla.setBounds(0,0,600,600);
@@ -89,16 +75,14 @@ public void mostrar(){
     }
     void lanzar(){
        
-        pantalla.add(iniciarsesion);
-        pantalla.add(registrar);
+        
         pantalla.add(cuenta);
         pantalla.add(nip);
         pantalla.add(sesionfoto);
-        pantalla.add(fondodepantalla);
         pantalla.add(confirmar);
         pantalla.add(ingresarc);
         pantalla.add(ingresarn);
-        
+        pantalla.add(fondodepantalla);
         this.getContentPane().add(pantalla);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -108,23 +92,15 @@ public void mostrar(){
 
         @Override
         public void actionPerformed(ActionEvent e) {
-               if (e.getSource() == iniciarsesion) {
-                iniciarsesion.setVisible(false);
-                registrar.setVisible(false);
-                setTitle("Iniciar sesion");
-                confirmar.setVisible(true);
-                cuenta.setVisible(true);
-                nip.setVisible(true);
-                ingresarc.setVisible(true);
-                ingresarn.setVisible(true);
-                sesionfoto.setVisible(true);
+               if (e.getSource() == confirmar) {
+                
+                
                 
                 
                 
             } 
 
-                if (e.getSource()==registrar){  
-            }
+         
         
         } 
    }
