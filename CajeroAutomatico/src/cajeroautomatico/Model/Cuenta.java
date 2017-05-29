@@ -2,11 +2,11 @@ package cajeroautomatico.Model;
 
 import java.util.Date;
 
-public class Cuenta {
-    int id;
-    int idCuentahabiente;
-    float saldo;
-    Date fechaCreacion;
+public class Cuenta extends Model{
+    private int id;
+    private int idCuentahabiente;
+    private float saldo;
+    private Date fechaCreacion;
     public Cuenta(){
         
     }
@@ -47,6 +47,19 @@ public class Cuenta {
 
     public Date getFechaCreacion() {
         return fechaCreacion;
+    }
+
+    @Override
+    public String getInsertCommand() {
+        String command = "INTERT INTO " + this.tablaBD + "(";
+        for(int i = 0, c = this.atributosBD.length; i < c; i++){
+            
+        }
+    }
+
+    @Override
+    public String getUpdateCommand() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
