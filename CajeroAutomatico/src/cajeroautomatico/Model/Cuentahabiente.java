@@ -1,5 +1,6 @@
 package cajeroautomatico.Model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cuentahabiente extends Model{
@@ -39,7 +40,22 @@ public class Cuentahabiente extends Model{
         this.fechaDeNacimiento = fechaDeNac;
         this.telefono = tel;
     }
-
+    public Cuentahabiente(String nomb, String dir, String pass, Date fechaDeNac, long tel) {
+        this.atributosBD = new String[]{
+            
+            "nombre",
+            "direccion",
+            "nip",
+            "telefono",
+            "fechaNacimiento"
+        };
+        this.tablaBD = "Cuentahabiente";
+        this.nombre = nomb;
+        this.direccion = dir;
+        this.pass = pass;
+        this.fechaDeNacimiento = fechaDeNac;
+        this.telefono = tel;
+    }
     public void setId(int id) {
         this.id = id;
     }
@@ -90,6 +106,8 @@ public class Cuentahabiente extends Model{
 
     @Override
     public String getInsertCommand() {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+       
         String command = "INSERT INTO " + this.tablaBD + " (";
          for (int i = 0, c = this.atributosBD.length; i < c; i++) {
             command += this.atributosBD[i];
@@ -97,14 +115,20 @@ public class Cuentahabiente extends Model{
                 command += ", ";
             }
         }
-        command += ") VALUES("
-                + "";
+        command += ") VALUES('"+this.nombre+"', '"+this.direccion+"','"+this.pass+"',"+this.telefono
+                +",'"+formatoFecha.format(this.fechaDeNacimiento)+
+                "');";
          return command;
     }
 
     @Override
     public String getUpdateCommand() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+        String command = "UPDATE " + this.tablaBD + " SET nombre= '"+nombre 
+                        + "', pin = '" + pass 
+                        + "', fechanacimiento = '" + formatoFecha.format(fechaDeNacimiento) + "';" ;
+                        
+        return command;
     }
 
     

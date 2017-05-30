@@ -34,7 +34,18 @@ public class Cuenta extends Model {
         this.saldo = saldo;
         this.fechaCreacion = fechaCreacion;
     }
-
+    public Cuenta(int idCuentaHabiente, float saldo, Date fechaCreacion) {
+        this.atributosBD = new String[]{
+            "idCuentahabiente",
+            "saldo",
+            "fechaCreacion"
+        };
+        this.tablaBD = "Cuenta";
+       
+        this.idCuentahabiente = idCuentaHabiente;
+        this.saldo = saldo;
+        this.fechaCreacion = fechaCreacion;
+    }
     public void setId(int id) {
         this.id = id;
     }
@@ -78,12 +89,10 @@ public class Cuenta extends Model {
             }
         }
         command += ") VALUES(" 
-                + this.id
-                + ", " 
                 + this.idCuentahabiente + 
                 ", " + this.saldo 
-                + ", " 
-                + formatoFecha.format(this.fechaCreacion) + ");";
+                + ", '" 
+                + formatoFecha.format(this.fechaCreacion) + "');";
         return command;
     }
 

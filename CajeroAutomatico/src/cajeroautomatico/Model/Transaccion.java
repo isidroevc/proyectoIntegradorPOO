@@ -25,6 +25,17 @@ public class Transaccion extends Model{
         this.tipo=tipo;
         this.fecha=fecha;
     }
+     public Transaccion( int idCuenta, float monto, String tipo, Date fecha){
+        this.atributosBD = new String[]{
+            "Cuenta_id",
+            "monto",
+            "tipo","fecha"
+        };
+        this.idCuenta=idCuenta;
+        this.monto=monto;
+        this.tipo=tipo;
+        this.fecha=fecha;
+    }
     
     
     public void setId(int id) {
@@ -78,8 +89,6 @@ public class Transaccion extends Model{
             }
         }
         command += ") VALUES(" 
-                + this.id
-                + ", " 
                 + this.idCuenta + 
                 ", " + this.monto 
                 + ", '"+ this.tipo  
