@@ -5,15 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cuenta extends Model {
-
-    private int id;
     private int idCuentahabiente;
     private float saldo;
     private Date fechaCreacion;
     
     public Cuenta() {
         this.atributosBD = new String[]{
-            "id",
             "idCuentahabiente",
             "saldo",
             "fechaCreacion"
@@ -23,7 +20,6 @@ public class Cuenta extends Model {
 
     public Cuenta(int id, int idCuentaHabiente, float saldo, Date fechaCreacion) {
         this.atributosBD = new String[]{
-            "id",
             "idCuentahabiente",
             "saldo",
             "fechaCreacion"
@@ -46,13 +42,7 @@ public class Cuenta extends Model {
         this.saldo = saldo;
         this.fechaCreacion = fechaCreacion;
     }
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
+    
 
     public void setIdCuentahabiente(int idCuentahabiente) {
         this.idCuentahabiente = idCuentahabiente;
@@ -81,17 +71,17 @@ public class Cuenta extends Model {
     @Override
     public String getInsertCommand() {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
-        String command = "INTERT INTO " + this.tablaBD + " (";
+        String command = "INSERT INTO " + this.tablaBD + " (";
         for (int i = 0, c = this.atributosBD.length; i < c; i++) {
             command += this.atributosBD[i];
             if (i < c - 1) {
                 command += ", ";
             }
         }
-        command += ") VALUES(" 
+        command += ") VALUES('" 
                 + this.idCuentahabiente + 
-                ", " + this.saldo 
-                + ", '" 
+                "', '" + this.saldo 
+                + "', '" 
                 + formatoFecha.format(this.fechaCreacion) + "');";
         return command;
     }

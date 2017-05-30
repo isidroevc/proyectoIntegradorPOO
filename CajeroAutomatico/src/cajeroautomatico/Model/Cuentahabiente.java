@@ -3,8 +3,7 @@ package cajeroautomatico.Model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Cuentahabiente extends Model{
-    private int id;			       
+public class Cuentahabiente extends Model{	       
     private String nombre;		       
     private String direccion;	       
     private String pass;		       
@@ -13,7 +12,6 @@ public class Cuentahabiente extends Model{
 
     public Cuentahabiente() {
          this.atributosBD = new String[]{
-            "id",
             "nombre",
             "direcion",
             "password",
@@ -25,7 +23,6 @@ public class Cuentahabiente extends Model{
 
     public Cuentahabiente(int id, String nomb, String dir, String pass, Date fechaDeNac, long tel) {
         this.atributosBD = new String[]{
-            "id",
             "nombre",
             "direcion",
             "password",
@@ -42,7 +39,6 @@ public class Cuentahabiente extends Model{
     }
     public Cuentahabiente(String nomb, String dir, String pass, Date fechaDeNac, long tel) {
         this.atributosBD = new String[]{
-            
             "nombre",
             "direccion",
             "nip",
@@ -56,13 +52,7 @@ public class Cuentahabiente extends Model{
         this.fechaDeNacimiento = fechaDeNac;
         this.telefono = tel;
     }
-    public void setId(int id) {
-        this.id = id;
-    }
     
-    public int getId() {
-        return id;
-    }
 
     public void setNombre(String nomb) {
         this.nombre = nomb;
@@ -115,8 +105,8 @@ public class Cuentahabiente extends Model{
                 command += ", ";
             }
         }
-        command += ") VALUES('"+this.nombre+"', '"+this.direccion+"',"+this.pass+","+this.telefono
-                +",'"+formatoFecha.format(this.fechaDeNacimiento)+
+        command += ") VALUES('"+this.nombre+"', '"+this.pass+"','"+this.direccion+"','"+this.telefono
+                +"','"+formatoFecha.format(this.fechaDeNacimiento)+
                 "');";
          return command;
     }

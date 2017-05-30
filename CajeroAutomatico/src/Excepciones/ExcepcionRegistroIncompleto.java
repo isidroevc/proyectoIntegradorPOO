@@ -5,8 +5,8 @@
  */
 package Excepciones;
 
-public class ExcepionRegistroIncompleto extends Exception{
-    public ExcepionRegistroIncompleto(String msg){
+public class ExcepcionRegistroIncompleto extends Exception{
+    public ExcepcionRegistroIncompleto(String msg){
         super(msg);
     }
     

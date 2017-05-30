@@ -3,8 +3,7 @@ package cajeroautomatico.Model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Transaccion extends Model{
-    private int id;				
+public class Transaccion extends Model{				
     private int idCuenta;			
     private float monto;
     private String tipo;
@@ -14,7 +13,6 @@ public class Transaccion extends Model{
     }
     public Transaccion(int id, int idCuenta, float monto, String tipo, Date fecha){
         this.atributosBD = new String[]{
-            "id",
             "Cuenta_id",
             "monto",
             "tipo","fecha"
