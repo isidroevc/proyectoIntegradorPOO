@@ -99,9 +99,9 @@ public class Cuenta extends Model {
     @Override
     public String getUpdateCommand() {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
-        String command = "UPDATE " + this.tablaBD + " SET id = '" + id 
-                        + "', idCuentahabiente = '" + idCuentahabiente + "', saldo = '" + saldo 
-                        + "', fechaCreacion = '" + formatoFecha.format(fechaCreacion) + "';" ;
+        String command = "UPDATE " + this.tablaBD + " SET idCuentahabiente = '" + idCuentahabiente + "', saldo = '" + saldo 
+                        + "', fechaCreacion = '" + formatoFecha.format(fechaCreacion) + "' where id = '" + id 
+                        + "'; " ;
                         
         return command;
     }

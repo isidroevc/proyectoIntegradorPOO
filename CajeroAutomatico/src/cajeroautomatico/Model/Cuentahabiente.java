@@ -115,7 +115,7 @@ public class Cuentahabiente extends Model{
                 command += ", ";
             }
         }
-        command += ") VALUES('"+this.nombre+"', '"+this.direccion+"','"+this.pass+"',"+this.telefono
+        command += ") VALUES('"+this.nombre+"', '"+this.direccion+"',"+this.pass+","+this.telefono
                 +",'"+formatoFecha.format(this.fechaDeNacimiento)+
                 "');";
          return command;
@@ -125,8 +125,8 @@ public class Cuentahabiente extends Model{
     public String getUpdateCommand() {
          SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
         String command = "UPDATE " + this.tablaBD + " SET nombre= '"+nombre 
-                        + "', pin = '" + pass 
-                        + "', fechanacimiento = '" + formatoFecha.format(fechaDeNacimiento) + "';" ;
+                        + "', nip = " + pass 
+                        + ", fechanacimiento = '" + formatoFecha.format(fechaDeNacimiento) + "' where id="+id+";" ;
                         
         return command;
     }
