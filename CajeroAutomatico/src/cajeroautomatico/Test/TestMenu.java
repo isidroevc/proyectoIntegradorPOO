@@ -5,6 +5,7 @@
  */
 package cajeroautomatico.Test;
 
+import cajeroautomatico.Model.Cuenta;
 import cajeroautomatico.View.Menu;
 public class TestMenu {
 
@@ -12,7 +13,7 @@ public class TestMenu {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Menu m = new Menu();
+        Menu m = new Menu(new Cuenta());
         m.mostrar();
     }
     
