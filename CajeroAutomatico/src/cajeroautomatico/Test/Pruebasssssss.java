@@ -7,7 +7,7 @@ public class Pruebasssssss {
 
     public static void main(String[] args) {
         
-        Transaccion tr=new Transaccion(1,1,100f,"Puto si lo lees",new Date());
+        Transaccion tr=new Transaccion(1,1,10f,"Retiro",new Date());
         System.out.println(tr.getInsertCommand());
         System.out.println(tr.getUpdateCommand());
     }

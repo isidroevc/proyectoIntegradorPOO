@@ -89,8 +89,10 @@ public class Transaccion extends Model{
     }
     @Override
     public String getUpdateCommand() {
-        String command="UPDATE Transacciones set monto="+this.monto+", tipo="+this.tipo+", fecha="+this.fecha
-                +"where id="+this.id+";";
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+        
+        String command="UPDATE Transacciones set monto="+this.monto+", tipo='"+this.tipo+"', fecha='"+formatoFecha.format(this.fecha)
+                +"' where id="+this.id+";";
         
         return command;
     }
