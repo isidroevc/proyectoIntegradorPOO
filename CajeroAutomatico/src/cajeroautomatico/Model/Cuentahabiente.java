@@ -2,7 +2,7 @@ package cajeroautomatico.Model;
 
 import java.util.Date;
 
-public class Cuentahabiente {
+public class Cuentahabiente extends Model{
     private int id;			       
     private String nombre;		       
     private String direccion;	       
@@ -11,9 +11,27 @@ public class Cuentahabiente {
     private long telefono;
 
     public Cuentahabiente() {
+         this.atributosBD = new String[]{
+            "id",
+            "nombre",
+            "direcion",
+            "password",
+            "telefono",
+            "fechaNacimiento"
+        };
+        this.tablaBD = "Cuentahabiente";
     }
 
     public Cuentahabiente(int id, String nomb, String dir, String pass, Date fechaDeNac, long tel) {
+        this.atributosBD = new String[]{
+            "id",
+            "nombre",
+            "direcion",
+            "password",
+            "telefono",
+            "fechaNacimiento"
+        };
+        this.tablaBD = "Cuentahabiente";
         this.id = id;
         this.nombre = nomb;
         this.direccion = dir;
@@ -68,6 +86,25 @@ public class Cuentahabiente {
 
     public long getTelefono() {
         return telefono;
+    }
+
+    @Override
+    public String getInsertCommand() {
+        String command = "INSERT INTO " + this.tablaBD + " (";
+         for (int i = 0, c = this.atributosBD.length; i < c; i++) {
+            command += this.atributosBD[i];
+            if (i < c - 1) {
+                command += ", ";
+            }
+        }
+        command += ") VALUES("
+                + "";
+         return command;
+    }
+
+    @Override
+    public String getUpdateCommand() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

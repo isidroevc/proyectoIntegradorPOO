@@ -20,6 +20,7 @@ public class TestCuenta {
     public static void main(String[] args) {
         Cuenta c = new Cuenta(1,1,2500,new Date());
         System.out.println(c.getInsertCommand());
+        System.out.println(c.getUpdateCommand());
     }
     
 }

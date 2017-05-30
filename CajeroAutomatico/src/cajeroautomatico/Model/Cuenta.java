@@ -83,13 +83,18 @@ public class Cuenta extends Model {
                 + this.idCuentahabiente + 
                 ", " + this.saldo 
                 + ", " 
-                + formatoFecha.format(this.fechaCreacion) + ")";
+                + formatoFecha.format(this.fechaCreacion) + ");";
         return command;
     }
 
     @Override
     public String getUpdateCommand() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+        String command = "UPDATE " + this.tablaBD + " SET id = '" + id 
+                        + "', idCuentahabiente = '" + idCuentahabiente + "', saldo = '" + saldo 
+                        + "', fechaCreacion = '" + formatoFecha.format(fechaCreacion) + "';" ;
+                        
+        return command;
     }
 
 }
